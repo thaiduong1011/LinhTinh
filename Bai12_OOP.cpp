@@ -36,6 +36,8 @@ public:
         for(int i = minMonth - 1; i < maxMonth - 1; i++ ){
             countDay += numDayOfMonth[i];
         }
+        int dayNum = abs(date.day - day);
+        countDay = countDay + dayNum;
 
         return countDay;
     }
