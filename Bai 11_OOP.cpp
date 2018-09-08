@@ -82,16 +82,39 @@ public:
 
 };
 
+class Student{
+public:
+        string name;
+};
+
 int main()
 {
-    Time time1(20, 61, 63);
+   /* Time time1(20, 61, 63);
     Time time2(21, 03, 60);
 
     time1.Display();
     time2.Display();
 
     Time time3 = time1.Distance(time2);
-    time3.Display();
+    time3.Display();*/
+
+    /*int* ptrA = new int(10);
+    int numA = 5;
+    int * ptrNumA = &numA;
+
+    cout<< *ptrNumA<< endl;
+    cout<< &ptrNumA<< endl;
+    cout<< ptrNumA<< endl;
+    cout<< &numA<< endl;
+    delete ptrA;
+    cout<< *ptrA<< endl;*/
+
+    Student* ptrSt1 = new Student();
+    ptrSt1->name = "Duong";
+    cout << ptrSt1->name << endl;
+    delete ptrSt1;
+    ptrSt1 = NULL;
+    cout << ptrSt1->name << endl;
 
     return 0;
 }
