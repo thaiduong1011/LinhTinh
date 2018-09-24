@@ -94,9 +94,9 @@ public:
 	}
 	
 	swap(float *a, float *b){
-		float *temp = a;
-		a = b;
-		b = temp;
+		float temp = *a;
+		*a = *b;
+		*b = temp;
 	}
 	
 	void Reverse(){
@@ -105,9 +105,10 @@ public:
 			SoDu = 0;
 			
 		for(int i = 0; i < length/2 + SoDu; i++){
-			float temp = v[i];
-			v[i] = v[length - 1 - i];
-			v[length - 1 - i] = temp;
+			swap(&v[i], &v[length - 1 - i]);
+//			float temp = v[i];
+//			v[i] = v[length - 1 - i];
+//			v[length - 1 - i] = temp;
 		}
 	}
 	
