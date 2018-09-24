@@ -93,11 +93,17 @@ public:
 			cout << "Array is full";
 	}
 	
-	swap(float *a, float *b){
-		float temp = *a;
-		*a = *b;
-		*b = temp;
-	}
+//	swap(float *a, float *b){
+//		float temp = *a;
+//		*a = *b;
+//		*b = temp;
+//	}
+
+swap(float &a, float &b){
+	float temp = a;
+	a= b;
+	b = temp;
+}
 	
 	void Reverse(){
 		int SoDu = 1;
@@ -105,10 +111,7 @@ public:
 			SoDu = 0;
 			
 		for(int i = 0; i < length/2 + SoDu; i++){
-			swap(&v[i], &v[length - 1 - i]);
-//			float temp = v[i];
-//			v[i] = v[length - 1 - i];
-//			v[length - 1 - i] = temp;
+			swap(v[i], v[length - 1 - i]);
 		}
 	}
 	
