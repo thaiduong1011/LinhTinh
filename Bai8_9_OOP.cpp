@@ -1,39 +1,47 @@
 #include <iostream>
+#include <stdio.h>
 using namespace std;
 
 class Array{
 private:
     float *v;
+    int length;
     int n;
 
 public:
-    Array(int N, float a = 0 ){
+    Array(int N){
+    	length = 0;
         n = N;
-
         v = new float[n];
-        for(int i = 0; i < n; i++){
-            v[i] = a;
-        }
     }
 
     Array(const Array &Arr){
         n = Arr.n;
 
         v = new float[n];
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < length; i++){
             v[i] = Arr.v[i];
         }
     }
-
-    int Get(float *&V){
-        V = v;
-        return n;
-    }
+    
+    void Input(){ // input if num = 0, break
+    	cout << "\n Nhap chuoi: ";
+    	int newNumber;
+    	while(length < n){
+    		cin >>newNumber;
+    		if (newNumber == 0)
+    			break;
+    		else{
+    			v[length] = newNumber;
+    			length++;
+			}   			
+		}
+	}
 
     void Out(){
         int count = 0;
         cout<<"\n";
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < length; i++){
             cout << v[i] <<"\t";
             count++;
             if (count == 10){
@@ -43,22 +51,91 @@ public:
         }
     }
 
+	int IndexMax(){
+		int indexMax = 0;
+		for (int i = 1; i < length; i++){
+    		if (v[i] > v[indexMax]){
+				indexMax = i;
+			}
+		}
+		
+		return indexMax;
+	}
+	
+	int IndexMin(){
+		int indexMin = 0;
+		for (int i = 1; i < length; i++){
+    		if (v[i] < v[indexMin]){
+				indexMin = i;
+			}
+		}
+		
+		return indexMin;
+	}
+	
+	void Remove(int value){
+		for (int i = 0; i < length; i++){
+    		if (v[i] == value){
+				for (int j = i; j < length - 1; j++){
+					v[j] = v[j + 1];
+				}				
+				i--;
+				length--;
+			}
+		}
+	}
+	
+	void Insert(int value){		
+		if (length < n){
+			v[length] = value;
+			length++;
+		}else
+			cout << "Array is full";
+	}
+	
+	swap(float *a, float *b){
+		float *temp = a;
+		a = b;
+		b = temp;
+	}
+	
+	void Reverse(){
+		int SoDu = 1;
+		if (length%2 == 0)
+			SoDu = 0;
+			
+		for(int i = 0; i < length/2 + SoDu; i++){
+			float temp = v[i];
+			v[i] = v[length - 1 - i];
+			v[length - 1 - i] = temp;
+		}
+	}
+	
 
 };
 
 int main(){
-    Array arr(16, 12);
-    Array arrClone(arr);
-
+	Array arr(5);
+	arr.Input();
     arr.Out();
-    arrClone.Out();
-
-    /*float *V;
-    int n;
-    n = arr.Get(V);
-    for(int i = 0; i < n; i++){
-        cout << V[i] << "\t";
-    }*/
+    cout<< "\nVi tri co gtri lon nhat: "<< arr.IndexMax();
+    cout<< "\nVi tri co gtri nho nhat: "<< arr.IndexMin();
+    
+    int value;
+    cout<<"\nXoa phan tu: ";
+    cin>> value;
+	arr.Remove(value);
+    arr.Out();
+    
+    cout<<"\nThem phan tu: ";
+    cin>> value;
+    arr.Insert(value);
+    arr.Out();
+	
+	cout<<"\nDao mang: ";
+    arr.Reverse();
+    arr.Out();
+	
 
     return 0;
 }
