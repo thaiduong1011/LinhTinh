@@ -12,7 +12,7 @@ class Matrix{
 		void Input();
 		void Output();
 		Matrix& operator=(const Matrix& matrix);
-		Matrix& operator=(const float& number);
+		Matrix& operator=(float number);
 		
 };
 
@@ -22,19 +22,18 @@ Matrix::Matrix(int c, int r){
 	p = new float*[rows];
 	
 	for (int i = 0; i < r; i++){
-		p[i] = new float[i];
+		p[i] = new float[cols];
 	}
 }
 
 Matrix::~Matrix(){
 	for(int i = 0; i < rows; i++){
-		delete p[i];
+		delete[] p[i];
 	}
-	
-	delete p;
+	delete[] p;
 }
 
-Matrix& Matrix::operator=(const float& number){
+Matrix& Matrix::operator=(float number){
 	for(int i = 0; i < rows; i++){
 		for (int j = 0; j < cols; j++){
 			p[i][j] = number;
@@ -72,12 +71,11 @@ void Matrix::Output(){
 }
 
 int main(){
-	Matrix matrix(3, 4);
+	Matrix matrix(2, 3);
 	matrix.Input();
 	matrix.Output();
 	
 	matrix = 6;
 	matrix.Output();
-	matrix.~Matrix();
 	return 0;
 }
