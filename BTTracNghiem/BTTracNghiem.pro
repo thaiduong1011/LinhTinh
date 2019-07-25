@@ -14,6 +14,7 @@ SOURCES += \
 HEADERS += \
     cauhoi.h \
     diemthi.h \
+    linkedlist.h \
     lop.h \
     monhoc.h \
     sinhvien.h

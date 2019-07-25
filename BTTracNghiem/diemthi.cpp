@@ -1,6 +1,6 @@
 #include "diemthi.h"
 
-DiemThi::DiemThi()
+DiemThi::DiemThi() : m_maMH(""), m_diem (0)
 {
 
 }

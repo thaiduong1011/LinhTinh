@@ -1,6 +1,5 @@
 #include "lop.h"
-
-Lop::Lop()
+Lop::Lop():m_maLop(""),m_tenLop(""), m_danhsachSV(nullptr)
 {
 
 }

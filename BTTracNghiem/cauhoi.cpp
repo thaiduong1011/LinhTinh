@@ -1,6 +1,6 @@
 #include "cauhoi.h"
 
-CauHoi::CauHoi()
+CauHoi::CauHoi():m_id(0), m_maMH(""), m_noiDung(""), m_A(""), m_B(""), m_C(""), m_D(""),m_ketQua(QA::A)
 {
 
 }

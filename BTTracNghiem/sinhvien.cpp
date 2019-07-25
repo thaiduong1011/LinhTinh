@@ -1,6 +1,5 @@
 #include "sinhvien.h"
-
-SinhVien::SinhVien()
+SinhVien::SinhVien():m_maSV(""), m_ho(""), m_ten(""), m_phai(PHAI::NU), m_password(""), m_diemThi(nullptr)
 {
 
 }
@@ -35,12 +34,12 @@ void SinhVien::setTen(const string &ten)
     m_ten = ten;
 }
 
-Phai SinhVien::phai() const
+PHAI SinhVien::phai() const
 {
     return m_phai;
 }
 
-void SinhVien::setPhai(const Phai &phai)
+void SinhVien::setPhai(const PHAI &phai)
 {
     m_phai = phai;
 }

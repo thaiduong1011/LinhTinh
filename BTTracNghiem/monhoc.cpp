@@ -1,6 +1,5 @@
 #include "monhoc.h"
-
-MonHoc::MonHoc()
+MonHoc::MonHoc(): m_maMH(""), m_tenMH("")
 {
 
 }

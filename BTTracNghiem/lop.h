@@ -1,6 +1,8 @@
 #ifndef LOP_H
 #define LOP_H
 #include <string>
+#include "linkedlist.h"
+#include "sinhvien.h"
 using std::string;
 
 class Lop
@@ -17,7 +19,7 @@ public:
 private:
     string m_maLop;
     string m_tenLop;
-    //DSSV pointer
+    LinkedList<SinhVien> m_danhsachSV;
 };
 
 #endif // LOP_H
