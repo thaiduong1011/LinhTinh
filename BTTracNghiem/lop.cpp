@@ -4,6 +4,11 @@ Lop::Lop():m_maLop(""),m_tenLop(""), m_danhsachSV(nullptr)
 
 }
 
+Lop::~Lop()
+{
+
+}
+
 string Lop::maLop() const
 {
     return m_maLop;

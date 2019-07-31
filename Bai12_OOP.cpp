@@ -68,7 +68,7 @@ public:
 
 int main()
 {
-    Date date1;
+    Date date1(1,3,2019);
     Date date2(3, 3, 2018);
 
     cout << date1.Distance(date2);

@@ -3,6 +3,24 @@
 #include <iomanip>
 using namespace std;
 
+class Complex{
+	private:
+		float Re;
+		float Im;
+	public:
+		Complex(float re = 0, float im = 0){
+			Re = re;
+			Im = im;
+		}
+		
+		friend ostream& operator<<(ostream& os, Complex& comp){
+			if (comp.Im >= 0)
+				os<<comp.Re << "+" << setprecision(2) << comp.Im<< "i";
+			else
+				os<<comp.Re << setprecision(2) << comp.Im<< "i";
+		}
+};
+
 class Quadratic{
 	private:
 		int a;
@@ -62,8 +80,15 @@ void Quadratic::OutputResult(){
 	}
 	
 	float delta = b*b - 4*a*c;
-	if (delta < 0)
-		cout << "Phuong trinh vo nghiem";
+	if (delta < 0){
+		cout << "Phuong trinh co 2 nghiem phuc: \n";
+		float Re = -b/(2*a);
+		float Im = sqrt(-delta)/(2*a);
+		Complex comp1(Re, Im);
+		Complex comp2(Re, -Im);
+		cout<<"\nx1 ="<< comp1;
+		cout<<"\nx2 ="<< comp2;
+	}		
 	else if (delta == 0){
 		 cout << "x1 = x2 = " << (-b/(2*a));
 	}else{

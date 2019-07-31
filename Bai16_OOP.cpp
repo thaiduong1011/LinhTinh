@@ -27,7 +27,8 @@ class Complex{
 		}
 		
 		friend ostream& operator << (ostream& os, Complex& comp){
-			cout << comp.Re << " + i" << comp.Im;
+			os << comp.Re << " + i" << comp.Im;
+			return (os);
 		}
 };
 
@@ -36,6 +37,9 @@ int main(){
 	Complex complex(2,5);
 	Complex complex1(3,1);
 	complex.Display();
-	cout << (complex + complex1);
+	cout<<"\n";
+	complex1.Display();
+	Complex result = complex + complex1;
+	cout <<"\nTong: "<< result;
 	return 1;
 }

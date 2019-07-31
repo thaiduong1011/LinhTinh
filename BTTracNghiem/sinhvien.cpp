@@ -4,6 +4,11 @@ SinhVien::SinhVien():m_maSV(""), m_ho(""), m_ten(""), m_phai(PHAI::NU), m_passwo
 
 }
 
+SinhVien::~SinhVien()
+{
+
+}
+
 string SinhVien::maSV() const
 {
     return m_maSV;

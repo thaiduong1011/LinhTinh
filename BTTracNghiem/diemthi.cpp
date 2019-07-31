@@ -5,6 +5,11 @@ DiemThi::DiemThi() : m_maMH(""), m_diem (0)
 
 }
 
+DiemThi::~DiemThi()
+{
+
+}
+
 string DiemThi::maMH() const
 {
     return m_maMH;

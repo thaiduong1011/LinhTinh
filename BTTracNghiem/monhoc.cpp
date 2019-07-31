@@ -4,6 +4,11 @@ MonHoc::MonHoc(): m_maMH(""), m_tenMH("")
 
 }
 
+MonHoc::~MonHoc()
+{
+
+}
+
 string MonHoc::maMH() const
 {
     return m_maMH;
